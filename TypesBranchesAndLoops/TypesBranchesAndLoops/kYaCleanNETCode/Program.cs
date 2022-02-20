@@ -9,9 +9,9 @@ namespace TypesBranchesAndLoops
     {
         //Configuration block:
         private static string _ChatPrefix = "[MysteryNumber]";
-        private static sbyte _AttemptsNum = 5;
-        private static ushort _MinRND = 1;
-        private static ushort _MaxRND = 3;
+        private static sbyte _AttemptsNum = -1;                                  // "-1" it is give infinity attempts for user.
+        private static ushort _MinRND = 0;
+        private static ushort _MaxRND = 999;
         private static string _ProgramPrefix = "[Program]";
         private static string _UserPrefix = "[User]";
         //
@@ -22,7 +22,7 @@ namespace TypesBranchesAndLoops
             {
                 if (string.IsNullOrWhiteSpace(userName))
                 {
-                    return "User name didn't install";
+                    return $"{_ProgramPrefix} username didn't install";
                 }
                 else
                 {
@@ -46,7 +46,7 @@ namespace TypesBranchesAndLoops
         {
             var isContinue = false;
 
-            WriteLine($"{_ProgramPrefix} Enter You name, please. (\"Enter\" for skip)");
+            WriteLine($"{_ProgramPrefix} Enter Your name, please. (\"Enter\" for skip)");
             Write($"{_UserPrefix} ");
             UserName = ReadLine();
 
@@ -57,13 +57,13 @@ namespace TypesBranchesAndLoops
                 bool isUserWin = false;
                 while ((mn.AttemptsNum > 0 || mn.AttemptsNum == -1) && !isUserWin)
                 {
-                    Write($"{_UserPrefix} [{mn.AttemptsNum}\\{_AttemptsNum}] Enter You num: ");
+                    Write($"{_UserPrefix} [{mn.AttemptsNum}\\{_AttemptsNum}] Enter Your num: ");
 
                     ushort.TryParse(ReadLine(), out ushort inputNum);
                     isUserWin = mn.TryToGuess(inputNum);
                 }
 
-                WriteLine("So...\n\t1 - start over\n\t0 - exit");
+                WriteLine($"{_ProgramPrefix} So...\n\t1 - start over\n\t0 - exit");
                 Write($"{_UserPrefix}");
                 var keyCode= ReadKey().Key;
                 switch (keyCode)
@@ -76,7 +76,7 @@ namespace TypesBranchesAndLoops
                     default:
                         {
                             isContinue = false;
-                            WriteLine($"Bye {UserName}!");
+                            WriteLine($"{_ProgramPrefix} Bye, {UserName}!");
                         }
                         break;
                 }

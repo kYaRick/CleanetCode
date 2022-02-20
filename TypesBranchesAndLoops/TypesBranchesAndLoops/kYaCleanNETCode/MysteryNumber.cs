@@ -31,7 +31,7 @@ namespace kYaCleanNETCode
         {
             bool isUserWin = false;
 
-            if (AttemptsNum > 0 || AttemptsNum != -1)
+            if (AttemptsNum > 0 || AttemptsNum == -1)
             {
                 if (inputNum == _GivenNum)
                 {
@@ -54,7 +54,9 @@ namespace kYaCleanNETCode
                 WriteLine($"{_ChatPrefix} Your attempts are over");
             }
 
-            AttemptsNum--;
+            if (AttemptsNum != -1) 
+                AttemptsNum--;
+
             return isUserWin;
         }
     }
