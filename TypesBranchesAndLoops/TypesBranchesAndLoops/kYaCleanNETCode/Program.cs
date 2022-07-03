@@ -8,13 +8,13 @@ namespace TypesBranchesAndLoops
     class Program
     {
         //Configuration block:
-        private static string _ChatPrefix = "[MysteryNumber]";
-        private static sbyte _AttemptsNum = -1;                                  // "-1" it is give infinity attempts for user.
-        private static ushort _MinRND = 0;
-        private static ushort _MaxRND = 999;
-        private static string _ProgramPrefix = "[Program]";
-        private static string _UserPrefix = "[User]";
-        //
+        private static string s_ChatPrefix = "[MysteryNumber]";
+        private static sbyte s_AttemptsNum = -1;                                  // "-1" it is give infinity attempts for user.
+        private static ushort s_MinRND = 0;
+        private static ushort s_MaxRND = 999;
+        private static string s_ProgramPrefix = "[Program]";
+        private static string s_UserPrefix = "[User]";
+        //~> end configuration block//
         
         private static string? userName;
         public static string? UserName { 
